@@ -11,11 +11,11 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var label: UILabel!
-    var number1: Int = 0
-    var number2: Int = 0
-    var number3: Int = 0
-    var ope = 0
-    var extraOpe = 0
+    var number1: Int = 0    //入力された文字を入れるための変数
+    var number2: Int = 0    //計算において最初に入力された数を入れるための変数
+    var number3: Int = 0    //連続計算の際にと途中経過の数を入れるための変数
+    var ope = 0             //通常計算時の計算符号判断のオペレーター
+    var extraOpe = 0        //連続計算時の計算符号判定のオペレーター
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -155,6 +155,7 @@ class ViewController: UIViewController {
         ope = 0
     }
     
+    /// 連続計算時に途中経過を計算するためのメソッド
     func moreCalc() {
         if extraOpe != 0 {
             if extraOpe == 3 {
@@ -180,6 +181,7 @@ class ViewController: UIViewController {
         ope = 0
     }
     
+    /// 連続計算時の積と商を計算するためのメソッド
     func extraCalc() {
         if extraOpe == 3 {
             number3 = number3 * number1
